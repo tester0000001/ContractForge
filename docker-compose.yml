@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    image: contractforge
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/salescontract
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: salescontract
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
